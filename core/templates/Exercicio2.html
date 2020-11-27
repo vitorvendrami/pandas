@@ -1,0 +1,118 @@
+{% extends "base.html"%}
+{% load static%}
+
+{%block head%}
+<title>Exercicio 2</title>
+
+{%endblock%}
+
+{%block base_content%}
+
+<div id="Room1" hidden>{{Room1}}</div>
+<div id="Room2" hidden>{{Room2}}</div>
+<div id="Room3" hidden>{{Room3}}</div>
+<div id="Room4" hidden>{{Room4}}</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="row">
+        <h2 class="text-center font-weight-light">Exercise 2: </h2>
+    </div>
+    <div class="row">
+        <h5 class=" font-weight-light">Agrupe os dados por salas (Room) e represente graficamente os boxplot para os
+            sete roteadores <br> Observando os gráficos, podemos sugerir uma forte correlação entre os
+            roteadores 6 e 7. <br>  Calcule a correlação par-a-par entre todos os roteadores usando todos os
+            dados disponíveis. <br> Realmente existe uma forte correlação entre os sinais gerados pelo roteador
+            6 e pelo roteador 7? <br>Outro par de roteadores apresenta um maior coeficiente de correlação?
+        </h5>
+
+        <h5 class=" font-weight-light">
+            A forma mais simples de se inferir o sinal mais intenso é verificando a média dos roteadores dentro de cada sala.
+            Sendo assim, os gráficos abaixo representam as médias de cada um dos 7 roteadores nas 4 salas.
+        </h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio2/Room1.png'%}" class="my-4 img img-fluid" width="900" height="380" alt="">
+            <p class="text-center font-weight-light">Box plots from Room 1</p>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio2/Room2.png'%}" class="my-4 img img-fluid" width="900" height="380" alt="">
+            <p class="text-center font-weight-light">Box plots from Room 2</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio2/Room3.png'%}" class="my-4 img img-fluid" width="900" height="380" alt="">
+            <p class="text-center font-weight-light">Box plots from Room 3</p>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio2/Room4.png'%}" class="my-4 img img-fluid" width="900" height="380" alt="">
+            <p class="text-center font-weight-light">Box plots from Room 4</p>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Matriz de Correlação</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Router1</th>
+                  <th>Router2</th>
+                  <th>Router3</th>
+                  <th>Router4</th>
+                  <th>Router5</th>
+                  <th>Router6</th>
+                  <th>Router7</th>
+                  <th>Room</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+              {% for i in table_values%}
+                  {% if forloop.counter == 8 %}
+                  <td>Room</td>
+                  {%else%}
+                  <td>Router{{ forloop.counter }}</td>
+                  {%endif%}
+
+                {% for a in i %}
+                  <td>{{a|floatformat:4}}</td>
+                {%endfor%}
+                  </tr>
+              {%endfor%}
+
+              </tbody>
+            </table>
+          </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <h2 class=" font-weight-light">Conclusion: </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h5 class=" font-weight-light">Para os roteadores 6 e 7 o coeficiente de correlação é de 0.7232,
+            apresentando uma alta correlação
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Para os roteadores 4 e 1 também apresentam uma forte correlação com um coeficiente de correlação igual a 0.9210
+        </h5>
+        </div>
+        <hr>
+
+        <hr>
+    </div>
+
+</main>
+{%endblock%}
+
+
+{%block scripts%}
+<script src="{% static 'Exercicio2/exercicio2.js' %}"></script>
+
+
+{%endblock%}

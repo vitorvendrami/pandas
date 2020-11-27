@@ -1,0 +1,97 @@
+{% extends "base.html"%}
+{% load static%}
+
+{%block head%}
+<title>Exercicio 4</title>
+
+{%endblock%}
+
+{%block base_content%}
+
+<div id="Room1" hidden>{{Room1}}</div>
+<div id="Room2" hidden>{{Room2}}</div>
+<div id="Room3" hidden>{{Room3}}</div>
+<div id="Room4" hidden>{{Room4}}</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="row">
+        <h2 class="text-center font-weight-light">Exercise 4: </h2>
+    </div>
+    <div class="row">
+        <h5 class=" font-weight-light">Admita que os dados que apresentem uma menor variabilidade entre as salas sejam
+            menos relevantes ao algoritmo de detecção.<br>  Diante dessa suposição e com base nos gráficos que você
+            acabou de gerar, qual(is) dos sinais/routers você julga desnecessário(s)?
+        </h5>
+
+        <h5 class=" font-weight-light">
+            A forma mais simples de se inferir o sinal mais intenso é verificando a média dos roteadores dentro de cada
+            sala.
+            Sendo assim, os gráficos abaixo representam as médias de cada um dos 7 roteadores nas 4 salas.
+        </h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router1.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 1</p>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router2.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 2</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router3.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 3</p>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router4.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 4</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router5.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 5</p>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router6.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 6</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'img/Exercicio4/Router7.png'%}" class="my-4 img img-fluid" width="900" height="380"
+                 alt="">
+            <p class="text-center font-weight-light">Box plots from Router 7</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <h2 class=" font-weight-light">Conclusion: </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h5 class=" font-weight-light">De acordo com os dados mostrados acima. O roteador 2 apresenta uma menor
+                variabilidade entre as médias.
+            </h5>
+        </div>
+        <hr>
+
+        <hr>
+    </div>
+
+</main>
+{%endblock%}
+
+
+{%block scripts%}
+{%endblock%}

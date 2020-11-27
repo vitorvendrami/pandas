@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+{% load static%}
+
+{%block head%}
+<title>Exercicio 1</title>
+
+{%endblock%}
+
+{%block base_content%}
+
+<div id="Room1" hidden>{{Room1}}</div>
+<div id="Room2" hidden>{{Room2}}</div>
+<div id="Room3" hidden>{{Room3}}</div>
+<div id="Room4" hidden>{{Room4}}</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="row">
+         <h2 class="text-center font-weight-light">Exercise 1: </h2>
+        <h5 class=" font-weight-light">Os dados da tabela acima sugerem que o sinal gerado pelo roteador 2 é o mais
+            intenso dentro da sala 1. Será mesmo isso verdade? <br> Qual a forma mais simples de inferirmos
+            qual é o sinal mais intenso dentro da sala 1
+        </h5>
+
+        <h5 class=" font-weight-light">
+            A forma mais simples de se inferir o sinal mais intenso é verificando a média dos roteadores dentro de cada sala.
+            Sendo assim, os gráficos abaixo representam as médias de cada um dos 7 roteadores nas 4 salas.
+        </h5>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 2 with {{max1}}</p>
+        </div>
+        <div class="col-6">
+            <canvas class="my-4" id="myChart2" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 1 with {{max2}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <canvas class="my-4" id="myChart3" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 1 with {{max3}}</p>
+        </div>
+        <div class="col-6">
+            <canvas class="my-4" id="myChart4" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 5 with {{max4}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="text-center font-weight-light">Conclusion: </h2>
+        <h5 class=" font-weight-light">Para a sala 1: De acordo com os dados apresentados,
+            o roteador dois é o mais intenso pois apresenta a média maior do que os demais.
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Seguindo esta lógica os roteadores mais intensos nas salas 2,3 e 4 respectivamente são:
+            Roteador 1, Roteador 1 e Roteador 2
+        </h5>
+    </div>
+</main>
+{%endblock%}
+
+
+{%block scripts%}
+<script src="{% static 'Exercicio1/exercicio1.js' %}"></script>
+{%endblock%}

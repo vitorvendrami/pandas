@@ -1,0 +1,198 @@
+{% extends "base.html"%}
+{% load static%}
+
+{%block head%}
+<title>Exercicio 3</title>
+
+{%endblock%}
+
+{%block base_content%}
+
+<div id="Room1" hidden>{{mean1}}</div>
+<div id="Room2" hidden>{{mean2}}</div>
+<div id="Room3" hidden>{{mean3}}</div>
+<div id="Room4" hidden>{{mean4}}</div>
+<div id="general_mean" hidden>{{general_mean}}</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="row">
+        <h2 class="text-center font-weight-light">Exercise 3: </h2>
+        <h5 class=" font-weight-light">Dispense as amostras que, em média,
+            mais se desprendam/distanciem da sua média amostral. <br> Assim sendo, determine qual roteador
+            (e consequentemente todas as suas amostras) deve ser dispensado em cada sala <br>
+        </h5>
+
+        <h5 class=" font-weight-light">
+            A forma mais simples de se inferir o sinal mais intenso é verificando a média dos roteadores dentro de cada
+            sala.
+            Sendo assim, os gráficos abaixo representam as médias de cada um dos 7 roteadores nas 4 salas.
+        </h5>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <canvas class="my-4" id="myChart5" name="myChart5" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 2 with {{max1}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 2 with {{max1}}</p>
+        </div>
+        <div class="col-6">
+            <canvas class="my-4" id="myChart2" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 1 with {{max2}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <canvas class="my-4" id="myChart3" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 1 with {{max3}}</p>
+        </div>
+        <div class="col-6">
+            <canvas class="my-4" id="myChart4" width="900" height="380"></canvas>
+            <p class="text-center font-weight-light">Max mean value: Router 5 with {{max4}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Matriz de Correlação</h2>
+
+        <div class="table-responsive">
+            <p>Média</p>
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>Router1</th>
+                    <th>Router2</th>
+                    <th>Router3</th>
+                    <th>Router4</th>
+                    <th>Router5</th>
+                    <th>Router6</th>
+                    <th>Router7</th>
+                    <th>Room</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>{{a.Router1}}</td>
+                    <td>{{a.Router2}}</td>
+                    <td>{{a.Router3}}</td>
+                    <td>{{a.Router4}}</td>
+                    <td>{{a.Router5}}</td>
+                    <td>{{a.Router6}}</td>
+                    <td>{{a.Router7}}</td>
+                    <td>all</td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <p>Média amostral a ser comparada</p>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>Router1</th>
+                    <th>Router2</th>
+                    <th>Router3</th>
+                    <th>Router4</th>
+                    <th>Router5</th>
+                    <th>Router6</th>
+                    <th>Router7</th>
+                    <th>Room</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>{{b.Router1}}</td>
+                    <td>{{b.Router2}}</td>
+                    <td>{{b.Router3}}</td>
+                    <td>{{b.Router4}}</td>
+                    <td>{{b.Router5}}</td>
+                    <td>{{b.Router6}}</td>
+                    <td>{{b.Router7}}</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>{{c.Router1}}</td>
+                    <td>{{c.Router2}}</td>
+                    <td>{{c.Router3}}</td>
+                    <td>{{c.Router4}}</td>
+                    <td>{{c.Router5}}</td>
+                    <td>{{c.Router6}}</td>
+                    <td>{{c.Router7}}</td>
+                    <td>2</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>{{d.Router1}}</td>
+                    <td>{{d.Router2}}</td>
+                    <td>{{d.Router3}}</td>
+                    <td>{{d.Router4}}</td>
+                    <td>{{d.Router5}}</td>
+                    <td>{{d.Router6}}</td>
+                    <td>{{d.Router7}}</td>
+                    <td>3</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>{{e.Router1}}</td>
+                    <td>{{e.Router2}}</td>
+                    <td>{{e.Router3}}</td>
+                    <td>{{e.Router4}}</td>
+                    <td>{{e.Router5}}</td>
+                    <td>{{e.Router6}}</td>
+                    <td>{{e.Router7}}</td>
+                    <td>4</td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="text-center font-weight-light">Conclusion: </h2>
+    </div>
+    <div class="row">
+
+        <h5 class=" font-weight-light">Para a sala 1: O roteador que mais se desprende da média amostral é
+            o Roteador 4 com variação de 10.615 dbm
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Para a sala 2: O roteador que mais se desprende da média amostral é
+            o Roteador 1 com variação de 15.560 dbm
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Para a sala 3: O roteador que mais se desprende da média amostral é
+            o Roteador 4 com variação de 5.556 dbm
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Para a sala 3: O roteador que mais se desprende da média amostral é
+            o Roteador 4 com variação de 2.864 dbm
+        </h5>
+
+        <h5 class=" font-weight-light">
+            Para a sala 4: O roteador que mais se desprende da média amostral é
+            o Roteador 5 com variação de 13.186 dbm
+        </h5>
+    </div>
+</main>
+{%endblock%}
+
+
+{%block scripts%}
+<script src="{% static 'Exercicio3/exercicio3.js' %}"></script>
+{%endblock%}
